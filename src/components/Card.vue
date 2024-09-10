@@ -34,12 +34,14 @@ const handleSubmit = async () => {
 
     try {
         const response = await axios.post('https://apitest.shabujglobal.africa/api/courses', newCourse)
-        
+        courses.value.push(response.data.data);
         
         form.country_name = '';
         form.university_name = '';
         form.course_name = '';
         form.tuition_fee = '';
+
+        document.getElementById('my_modal_3').close()
     } catch (error) {
         console.error('error posting course')
     }

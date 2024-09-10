@@ -31,7 +31,7 @@ const handleSubmit = async () => {
     try {
         const response = await axios.put(`https://apitest.shabujglobal.africa/api/courses/${courseId}`, updateCourse)
         emit('courseAdded', response.data.data)
-        
+        router.push('/');
         
     } catch (error) {
         console.error('error posting course')
