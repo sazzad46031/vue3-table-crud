@@ -50,6 +50,11 @@ const handleSubmit = async () => {
 
 
 const deleteJob = async (id) => {
+    const isConfirmed = confirm("Are you sure you want to delete this course?");
+
+    if (!isConfirmed) {
+        return; 
+    }
     try {
             const response = await axios.delete(`https://apitest.shabujglobal.africa/api/courses/${id}`)
             emit('delete', id);
